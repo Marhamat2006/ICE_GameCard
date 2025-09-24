@@ -33,18 +33,22 @@ public class CardTrick {
         }
         
         //insert code to ask the user for Card value and suit, create their card
-        System.out.print("Enter a card value (1-13): ");
-        int valueInput = input.nextInt(); //user value get stored in valueInput
+        //System.out.print("Enter a card value (1-13): ");
+        //int valueInput = input.nextInt(); //user value get stored in valueInput
         
-        System.out.print("Enter a suit (0=Hearts, 1=Diamonds, 2=Clubs, 3=Spades):");
-        int indexSuit = input.nextInt(); //user value gets stored in variable indexSuit
-        String userSuit = Card.SUITS[indexSuit];
+        //System.out.print("Enter a suit (0=Hearts, 1=Diamonds, 2=Clubs, 3=Spades):");
+        //int indexSuit = input.nextInt(); //user value gets stored in variable indexSuit
+        //String userSuit = Card.SUITS[indexSuit];
 
+        Card luckyCard = new Card();
+        luckyCard.setValue(2);
+        luckyCard.setSuit("Hearts");
         
+        // and search magicHand here
         boolean cardInHand = false;
         for (int i=0; i<magicHand.length; i++){
-            if (magicHand[i].getValue() == valueInput && 
-                magicHand[i].getSuit().equals(userSuit)){
+            if (magicHand[i].getValue() == luckyCard.getValue() && 
+                magicHand[i].getSuit().equals(luckyCard.getSuit())){
                 cardInHand = true;
                 break;
             }
@@ -52,16 +56,18 @@ public class CardTrick {
         
         //Then report the result here
         if (cardInHand){
-            System.out.println("Congrats! Your card is in magic hand YAY!");
+            System.out.println("Congrats! Your card " + luckyCard.getValue()+ 
+                               "of" + luckyCard.getSuit() + " is in magic hand YAY!");
+
         } else { 
             System.out.println("Sorry, you card is not in the magic hand.");
         }
         
         // add one luckcard hard code 2,clubs
-         if (valueInput == 2 && userSuit.equals("Diamonds")){
-             System.out.println("You have found the lucky cards (2 of Diamonds) ");
+         //if (valueInput == 2 && userSuit.equals("Diamonds")){
+             //System.out.println("You have found the lucky cards (2 of Diamonds) ");
   
-    }  
+    //}  
 
     }
     
